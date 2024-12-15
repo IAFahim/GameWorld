@@ -1,0 +1,23 @@
+{
+    "name": "Pancake.DebugView",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1d516b886d9db401ea62daad275f3915",
+        "GUID:adac8d59ad7e8504f82d387cded797a7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.annulusgames.debug-ui",
+            "expression": "1.0.2",
+            "define": "PANCAKE_DEBUG_UI"
+        }
+    ],
+    "noEngineReferences": false
+}
