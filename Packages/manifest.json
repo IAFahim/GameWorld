@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.charactercontroller": "1.2.4",
     "com.annulusgames.debug-ui": "https://github.com/pancake-llc/DebugUI.git?path=src/DebugUI/Assets/DebugUI",
     "com.annulusgames.lit-motion": "https://github.com/AnnulusGames/LitMotion.git?path=src/LitMotion/Assets/LitMotion#v1.9.0",
     "com.bovinelabs.core": "https://gitlab.com/tertle/com.bovinelabs.core.git#1.3.4",
