@@ -7,7 +7,6 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Physics;
-using Unity.Physics.Authoring;
 using Unity.Physics.Extensions;
 using Unity.Physics.Systems;
 using Unity.Transforms;

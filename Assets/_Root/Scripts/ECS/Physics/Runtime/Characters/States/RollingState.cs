@@ -1,9 +1,6 @@
 using Unity.Entities;
 using Unity.CharacterController;
 using Unity.Mathematics;
-using Unity.Physics;
-using Unity.Rendering;
-using Unity.Transforms;
 
 public struct RollingState : IPlatformerCharacterState
 {
