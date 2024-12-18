@@ -1,9 +1,10 @@
 using System;
-using Unity.Collections;
 using Unity.Entities;
-using Unity.Mathematics;
 
-[Serializable]
-public struct MainEntityCamera : IComponentData
+namespace _Root.Scripts.ECS.Cameras.Runtime
 {
+    [Serializable]
+    public struct MainEntityCamera : IComponentData
+    {
+    }
 }

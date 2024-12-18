@@ -1,7 +1,8 @@
-﻿using Unity.Entities;
+﻿using _Root.Scripts.Data.Runtime;
+using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Levels.Runtime
+namespace _Root.Scripts.ECS.Authorings.Runtime
 {
     public class LevelComponentDataAuthoring : MonoBehaviour
     {
