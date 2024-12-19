@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Data.Runtime;
+using _Root.Scripts.Data.Runtime.Deaths;
 using BovineLabs.Core.LifeCycle;
 using Unity.Burst;
 using Unity.Entities;

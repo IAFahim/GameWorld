@@ -1,23 +1,23 @@
-﻿using _Root.Scripts.Data.Runtime;
+﻿using _Root.Scripts.Data.Runtime.Stats;
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime
+namespace _Root.Scripts.ECS.Authorings.Runtime.Stats
 {
-    public class HealthComponentDataAuthoring : MonoBehaviour
+    public class HealthAuthoring : MonoBehaviour
     {
-        public float health = 1;
+        public float currentHealth = 1;
         public float maxHealth = 1;
 
-        private class HealthComponentDataAuthoringBaker : Baker<HealthComponentDataAuthoring>
+        private class HealthComponentDataAuthoringBaker : Baker<HealthAuthoring>
         {
-            public override void Bake(HealthComponentDataAuthoring authoring)
+            public override void Bake(HealthAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity,
                     new HealthComponentData
                     {
-                        Health = authoring.health,
+                        CurrentHealth = authoring.currentHealth,
                         MaxHealth = authoring.maxHealth
                     }
                 );

@@ -1,9 +1,9 @@
-﻿using _Root.Scripts.Data.Runtime;
+﻿using _Root.Scripts.Data.Runtime.Offsets;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime
+namespace _Root.Scripts.ECS.Authorings.Runtime.Offsets
 {
     public class CenterOffsetAuthoring : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace _Root.Scripts.ECS.Authorings.Runtime
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity, new CenterOffsetComponentData
                 {
-                    Value = authoring.centerOffset
+                    Offset = authoring.centerOffset
                 });
             }
         }

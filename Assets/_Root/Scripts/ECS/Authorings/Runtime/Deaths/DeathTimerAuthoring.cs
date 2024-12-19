@@ -1,8 +1,8 @@
-﻿using _Root.Scripts.Data.Runtime;
+﻿using _Root.Scripts.Data.Runtime.Deaths;
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime
+namespace _Root.Scripts.ECS.Authorings.Runtime.Deaths
 {
     public class DeathTimerAuthoring : MonoBehaviour
     {

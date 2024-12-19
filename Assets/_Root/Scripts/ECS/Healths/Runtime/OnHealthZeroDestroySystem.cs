@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Data.Runtime;
+using _Root.Scripts.Data.Runtime.Stats;
 using BovineLabs.Core.LifeCycle;
 using Unity.Burst;
 using Unity.Entities;
@@ -21,7 +22,7 @@ namespace _Root.Scripts.ECS.Healths.Runtime
                 >().WithDisabled<DestroyEntity>().WithEntityAccess()
             )
             {
-                if (healthComponentData.ValueRO.Health > 0) return;
+                if (healthComponentData.ValueRO.CurrentHealth > 0) return;
                 state.EntityManager.SetComponentEnabled<DestroyEntity>(entity, true);
             }
         }

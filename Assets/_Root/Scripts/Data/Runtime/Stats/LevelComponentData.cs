@@ -1,9 +1,9 @@
 ﻿using Unity.Entities;
 
-namespace _Root.Scripts.Data.Runtime
+namespace _Root.Scripts.Data.Runtime.Stats
 {
     public struct LevelComponentData : IComponentData
     {
-        public int Level;
+        public int CurrentLevel;
     }
 }
