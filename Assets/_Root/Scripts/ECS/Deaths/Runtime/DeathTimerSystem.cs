@@ -7,7 +7,7 @@ namespace _Root.Scripts.ECS.Deaths.Runtime
 {
     public partial struct DeathTimerSystem : ISystem
     {
-        private DestroyTimer<DeathTimer> _destroyTimer;
+        private DestroyTimer<DeathTimerComponentData> _destroyTimer;
         
         [BurstCompile]
         public void OnCreate(ref SystemState state)

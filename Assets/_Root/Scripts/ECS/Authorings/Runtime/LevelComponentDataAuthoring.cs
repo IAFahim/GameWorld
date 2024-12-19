@@ -13,7 +13,10 @@ namespace _Root.Scripts.ECS.Authorings.Runtime
             public override void Bake(LevelComponentDataAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
-                AddComponent(entity, new LevelComponentData { Level = authoring.level });
+                AddComponent(entity, new LevelComponentData
+                {
+                    Level = authoring.level
+                });
             }
         }
     }
