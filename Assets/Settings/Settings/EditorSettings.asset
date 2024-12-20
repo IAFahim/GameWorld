@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: EditorSettings
   m_EditorClassIdentifier: 
   prebakeScenes: []
-  paths: []
+  paths:
+  - Key: settings.resource
+    Path: Assets/Settings/
+  - Key: settings
+    Path: Assets/Settings/Settings
   defaultSettingsAuthoring: {fileID: 0}
   settingAuthoring:
   - World: service
