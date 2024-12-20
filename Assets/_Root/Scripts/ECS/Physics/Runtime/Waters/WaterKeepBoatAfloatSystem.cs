@@ -20,7 +20,7 @@ namespace _Root.Scripts.ECS.Physics.Runtime.Waters
                 .WithAll<LocalTransform>()
                 .WithAll<DampingStrengthComponentData>()
                 .WithAll<PhysicsVelocity>()
-                .WithPresent<KeepUpRightTagComponentData>()
+                .WithPresent<KeepAfloatTagComponentData>()
                 .Build();
         }
 

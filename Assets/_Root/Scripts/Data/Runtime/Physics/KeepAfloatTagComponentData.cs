@@ -2,8 +2,7 @@
 
 namespace _Root.Scripts.Data.Runtime.Physics
 {
-    public struct KeepUpRightTagComponentData : IComponentData
+    public struct KeepAfloatTagComponentData : IComponentData
     {
-        
     }
 }
