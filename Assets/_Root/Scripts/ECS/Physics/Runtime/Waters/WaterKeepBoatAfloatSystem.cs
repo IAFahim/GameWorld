@@ -1,5 +1,6 @@
 ﻿using _Root.Scripts.Data.Runtime.Physics;
 using _Root.Scripts.Data.Runtime.Waters;
+using _Root.Scripts.Tags.Runtime.Physics;
 using BovineLabs.Core.Extensions;
 using Unity.Burst;
 using Unity.Entities;
@@ -11,7 +12,7 @@ namespace _Root.Scripts.ECS.Physics.Runtime.Waters
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     public partial struct WaterKeepBoatAfloatSystem : ISystem
     {
-        public EntityQuery _query;
+        private EntityQuery _query;
 
         public void OnCreate(ref SystemState state)
         {

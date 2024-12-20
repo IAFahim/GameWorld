@@ -1,4 +1,4 @@
-﻿using _Root.Scripts.Data.Runtime.Physics;
+﻿using _Root.Scripts.Tags.Runtime.Physics;
 using Unity.Entities;
 using UnityEngine;
 
