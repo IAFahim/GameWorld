@@ -8,6 +8,7 @@ namespace _Root.Scripts.ECS.Authorings.Runtime.Physics
     {
         public float damping = 0.1f;
         public float strength = 1f;
+        public float accuracy = 1;
 
         public class RotateDampingStrengthBaker : Baker<RotateDampingAndStrengthAuthoring>
         {
@@ -18,9 +19,9 @@ namespace _Root.Scripts.ECS.Authorings.Runtime.Physics
                     new RotateDampingAndStrengthComponentData
                     {
                         Damping = rotateDampingAndStrengthAuthoring.damping,
-                        Strength = rotateDampingAndStrengthAuthoring.strength
-                    }
-                );
+                        Strength = rotateDampingAndStrengthAuthoring.strength,
+                        Accuracy = rotateDampingAndStrengthAuthoring.accuracy
+                    });
             }
         }
     }

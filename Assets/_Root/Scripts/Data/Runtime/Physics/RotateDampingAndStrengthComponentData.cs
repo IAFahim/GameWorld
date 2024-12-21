@@ -6,5 +6,6 @@ namespace _Root.Scripts.Data.Runtime.Physics
     {
         public float Damping;
         public float Strength;
+        public float Accuracy;
     }
 }

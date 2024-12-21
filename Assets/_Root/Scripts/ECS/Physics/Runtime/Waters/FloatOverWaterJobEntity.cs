@@ -22,11 +22,7 @@ namespace _Root.Scripts.ECS.Physics.Runtime.Waters
                 floatDampingAndStrength.Damping, floatDampingAndStrength.Strength
             );
 
-            physicsVelocity = new PhysicsVelocity
-            {
-                Linear = physicsVelocity.Linear + buoyancyForce,
-                Angular = physicsVelocity.Angular
-            };
+            physicsVelocity.Linear += buoyancyForce;
         }
 
         [BurstCompile]

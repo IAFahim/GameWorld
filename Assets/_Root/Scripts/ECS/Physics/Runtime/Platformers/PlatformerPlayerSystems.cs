@@ -20,9 +20,6 @@ public partial class PlatformerPlayerInputsSystem : SystemBase
         inputActions.GameplayMap.Enable();
         _defaultActionsMap = inputActions.GameplayMap;
         
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        
         RequireForUpdate<FixedTickSystem.Singleton>();
         RequireForUpdate(SystemAPI.QueryBuilder().WithAll<PlatformerPlayer, PlatformerPlayerInputs>().Build());
     }
