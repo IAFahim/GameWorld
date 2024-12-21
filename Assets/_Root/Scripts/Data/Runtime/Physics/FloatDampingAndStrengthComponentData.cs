@@ -2,7 +2,7 @@
 
 namespace _Root.Scripts.Data.Runtime.Physics
 {
-    public struct DampingStrengthComponentData : IComponentData
+    public struct FloatDampingAndStrengthComponentData : IComponentData
     {
         public float Damping;
         public float Strength;

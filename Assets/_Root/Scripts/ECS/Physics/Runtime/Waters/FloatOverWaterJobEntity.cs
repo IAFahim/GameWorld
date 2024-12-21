@@ -8,18 +8,18 @@ using Unity.Transforms;
 namespace _Root.Scripts.ECS.Physics.Runtime.Waters
 {
     [BurstCompile]
-    public partial struct WaterKeepBoatAfloatJobEntity : IJobEntity
+    public partial struct FloatOverWaterJobEntity : IJobEntity
     {
         public float WaterHeight;
 
         private void Execute(in LocalTransform localTransform, ref PhysicsVelocity physicsVelocity,
-            in DampingStrengthComponentData damping)
+            in FloatDampingAndStrengthComponentData floatDampingAndStrength)
         {
             var buoyancyForce = BuoyancyForce(
                 WaterHeight,
                 localTransform.Position,
                 physicsVelocity.Linear,
-                damping.Damping, damping.Strength
+                floatDampingAndStrength.Damping, floatDampingAndStrength.Strength
             );
 
             physicsVelocity = new PhysicsVelocity

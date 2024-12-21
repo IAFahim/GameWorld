@@ -1,0 +1,27 @@
+﻿using _Root.Scripts.Data.Runtime.Physics;
+using Unity.Entities;
+using UnityEngine;
+
+namespace _Root.Scripts.ECS.Authorings.Runtime.Physics
+{
+    public class RotateDampingAndStrengthAuthoring : MonoBehaviour
+    {
+        public float damping = 0.1f;
+        public float strength = 1f;
+
+        public class RotateDampingStrengthBaker : Baker<RotateDampingAndStrengthAuthoring>
+        {
+            public override void Bake(RotateDampingAndStrengthAuthoring rotateDampingAndStrengthAuthoring)
+            {
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(entity,
+                    new RotateDampingAndStrengthComponentData
+                    {
+                        Damping = rotateDampingAndStrengthAuthoring.damping,
+                        Strength = rotateDampingAndStrengthAuthoring.strength
+                    }
+                );
+            }
+        }
+    }
+}
