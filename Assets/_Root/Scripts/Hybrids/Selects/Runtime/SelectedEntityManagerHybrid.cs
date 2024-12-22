@@ -9,9 +9,9 @@ using UnityEngine.InputSystem;
 using Ray = UnityEngine.Ray;
 using RaycastHit = Unity.Physics.RaycastHit;
 
-namespace _Root.Scripts.Hybrids.Runtime.Selects
+namespace _Root.Scripts.Hybrids.Selects.Runtime
 {
-    public class SelectedEntityManagerMonoBehavior : MonoBehaviour
+    public class SelectedEntityManagerHybrid : MonoBehaviour
     {
         public Camera mainCamera;
         public EventSystem eventSystem;
