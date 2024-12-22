@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime.Physics
+namespace _Root.Scripts.ECS.Physics.Runtime.Rotates
 {
     public class RotateDampingAndStrengthAuthoring : MonoBehaviour
     {

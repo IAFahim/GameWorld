@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime.Deaths
+namespace _Root.Scripts.ECS.Deaths.Runtime
 {
     public class DeathTimerAuthoring : MonoBehaviour
     {

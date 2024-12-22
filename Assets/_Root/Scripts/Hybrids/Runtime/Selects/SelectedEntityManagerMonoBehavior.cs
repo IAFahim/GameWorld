@@ -6,10 +6,12 @@ using Unity.Physics.Authoring;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Ray = UnityEngine.Ray;
+using RaycastHit = Unity.Physics.RaycastHit;
 
 namespace _Root.Scripts.Hybrids.Runtime.Selects
 {
-    public class SelectedEntitiyManangerMonoBehavior : MonoBehaviour
+    public class SelectedEntityManagerMonoBehavior : MonoBehaviour
     {
         public Camera mainCamera;
         public EventSystem eventSystem;
@@ -20,7 +22,9 @@ namespace _Root.Scripts.Hybrids.Runtime.Selects
 
         [ShowInInspector] [ReadOnly] private Entity _selectedEntity;
         private CollisionFilter _collisionFilter;
-        
+        private SelectedComponentData _selectedComponentData;
+
+
         protected void Update()
         {
             if (eventSystem.IsPointerOverGameObject()) return;
@@ -49,13 +53,12 @@ namespace _Root.Scripts.Hybrids.Runtime.Selects
                 GroupIndex = groupIndex
             };
 
-            PerformRayCast(readValue, ref collisionWorld, ref entityManager);
+            PerformRayCast(ref entityManager, ref collisionWorld, readValue);
         }
 
         private void PerformRayCast(
-            Vector2 readValue,
-            ref CollisionWorld collisionWorld,
-            ref EntityManager entityManager
+            ref EntityManager entityManager, ref CollisionWorld collisionWorld,
+            Vector2 readValue
         )
         {
             var ray = mainCamera.ScreenPointToRay(readValue);
@@ -66,31 +69,44 @@ namespace _Root.Scripts.Hybrids.Runtime.Selects
                     Filter = _collisionFilter
                 }, out var hit))
             {
-                _selectedEntity = collisionWorld.Bodies[hit.RigidBodyIndex].Entity;
-                entityManager.SetComponentEnabled<SelectedTagComponentData>(_selectedEntity, true);
-                entityManager.SetComponentData(_selectedEntity, new SelectedTagComponentData()
-                {
-                    EnabledThisFrame = true
-                });
-                Debug.DrawLine(ray.origin, hit.Position, Color.green, 1f);
+                ForgetSelectedComponent(ref entityManager, ray);
+                SetSelectedComponent(ref collisionWorld, ref entityManager, hit, ray);
             }
             else
             {
-                if (
-                    _selectedEntity != Entity.Null &&
-                    entityManager.Exists(_selectedEntity) &&
-                    entityManager.HasComponent<SelectedTagComponentData>(_selectedEntity)
-                )
-                {
-                    entityManager.SetComponentEnabled<SelectedTagComponentData>(_selectedEntity, false);
-                    _selectedEntity = Entity.Null;
-                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.red, 1f);
-                }
-                else
-                {
-                    Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.blue, 1f);
-                }
+                if (_selectedComponentData.UnFocusEmptyClicked) ForgetSelectedComponent(ref entityManager, ray);
             }
+        }
+
+        private void ForgetSelectedComponent(ref EntityManager entityManager, Ray ray)
+        {
+            if (_selectedEntity != Entity.Null && entityManager.Exists(_selectedEntity))
+            {
+                entityManager.SetComponentEnabled<SelectedComponentData>(_selectedEntity, false);
+                _selectedEntity = Entity.Null;
+                Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.red, 1f);
+            }
+            else
+            {
+                Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.blue, 1f);
+            }
+        }
+
+        private void SetSelectedComponent(
+            ref CollisionWorld collisionWorld, ref EntityManager entityManager,
+            RaycastHit hit, Ray ray
+        )
+        {
+            _selectedEntity = collisionWorld.Bodies[hit.RigidBodyIndex].Entity;
+            if (!entityManager.HasComponent<SelectedComponentData>(_selectedEntity)) return;
+            _selectedComponentData = entityManager.GetComponentData<SelectedComponentData>(_selectedEntity);
+            entityManager.SetComponentEnabled<SelectedComponentData>(_selectedEntity, true);
+            entityManager.SetComponentData(_selectedEntity, new SelectedComponentData()
+            {
+                UnFocusEmptyClicked = _selectedComponentData.UnFocusEmptyClicked,
+                TimeSceneEnabled = 0
+            });
+            Debug.DrawLine(ray.origin, hit.Position, Color.green, 1f);
         }
     }
 }

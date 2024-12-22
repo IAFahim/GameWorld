@@ -1,5 +1,4 @@
-﻿using _Root.Scripts.Data.Runtime;
-using _Root.Scripts.Data.Runtime.Deaths;
+﻿using _Root.Scripts.Data.Runtime.Deaths;
 using BovineLabs.Core.LifeCycle;
 using Unity.Burst;
 using Unity.Entities;
@@ -20,12 +19,6 @@ namespace _Root.Scripts.ECS.Deaths.Runtime
         public void OnUpdate(ref SystemState state)
         {
             _destroyTimer.OnUpdate(ref state);
-        }
-
-        [BurstCompile]
-        public void OnDestroy(ref SystemState state)
-        {
-
         }
     }
 }

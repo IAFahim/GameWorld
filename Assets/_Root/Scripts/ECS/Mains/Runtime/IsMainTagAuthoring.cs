@@ -1,8 +1,8 @@
-﻿using _Root.Scripts.Tags.Runtime.Mains;
+﻿using _Root.Scripts.Data.Runtime.Mains;
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime.Mains
+namespace _Root.Scripts.ECS.Mains.Runtime
 {
     public class IsMainTagAuthoring : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace _Root.Scripts.ECS.Authorings.Runtime.Mains
             public override void Bake(IsMainTagAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
-                AddComponent<IsMainTagComponentData>(entity);
+                AddComponent(entity, new MainSingletonComponentData());
             }
         }
     }
