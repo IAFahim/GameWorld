@@ -1,5 +1,6 @@
 ﻿{
-  "name": "Hybrid.Selected.Runtime","rootNamespace": "",
+  "name": "ECS.Deaths.Runtime",
+  "rootNamespace": "",
   "references": [
     "GUID:734d92eba21c94caba915361bd5ac177",
     "GUID:63afb046c8423dd448ae7aba042ea63d",
@@ -8,16 +9,8 @@
     "GUID:2665a8d13d1b3f18800f46e256720795",
     "GUID:8819f35a0fc84499b990e90a4ca1911f",
     "GUID:a5baed0c9693541a5bd947d336ec7659",
-    "GUID:fba13774ff4078041871f6741c062151",
-    "GUID:6bfefdf09ee6431fae75a6f5e06a0e89",
-    "GUID:90a2a506658d78a43aa8aa3c3bddc0e1",
-    "GUID:75469ad4d38634e559750d17036d5f7c",
-    "GUID:e00140a815de944528348782854abe39",
-    "GUID:b41c0d56d7164246aa86c167a6cf3cff",
-    "GUID:ede7c8eed2ae47b8b4cd8acc8ca4c084",
     "GUID:f8242764ccad06a4ca6d427d36be92ab",
-    "GUID:14868d8e8b0ffc744b620f1ea931c4bc",
-    "GUID:d365ee18fce54e2a867762e600148894"
+    "GUID:14868d8e8b0ffc744b620f1ea931c4bc"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
