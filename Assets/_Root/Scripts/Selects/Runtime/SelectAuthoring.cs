@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime.Selects
+namespace _Root.Scripts.Selects.Runtime
 {
     public class SelectAuthoring : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Authorings.Runtime.Waters
+namespace _Root.Scripts.Waters.Runtime
 {
     public class OnWaterTagAuthoring : MonoBehaviour
     {

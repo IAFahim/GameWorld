@@ -18,6 +18,10 @@ MonoBehaviour:
     Path: Assets/Settings/
   - Key: settings
     Path: Assets/Settings/Settings
+  - Key: object.definitions
+    Path: Assets/Settings/Definitions
+  - Key: object.groups
+    Path: Assets/Settings/Groups
   defaultSettingsAuthoring: {fileID: 0}
   settingAuthoring:
   - World: service

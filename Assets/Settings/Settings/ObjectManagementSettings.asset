@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ObjectManagementSettings
   m_EditorClassIdentifier: 
   objectDefinitions:
-  - {fileID: 11400000, guid: 333d55e4400821c4cae7affc1d4f3fb3, type: 2}
-  objectGroups: []
+  - {fileID: 11400000, guid: 98bf3f33a2ccc54469f33e12eccf3c32, type: 2}
+  objectGroups:
+  - {fileID: 11400000, guid: 8e4afa6c6c418f749a58b897e22eca74, type: 2}

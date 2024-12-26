@@ -6,6 +6,7 @@ namespace _Root.Scripts.ObjectIDs.Runtime
 {
     public class ObjectIdAuthoring : MonoBehaviour
     {
+        [ObjectCategories]
         public int mod;
         public int id;
 
