@@ -12,16 +12,16 @@ namespace _Root.Scripts.Mains.Runtime
 
         private void Update()
         {
-            var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-            var query = entityManager.CreateEntityQuery(typeof(MainTagComponentData), typeof(ObjectId));
-            var entities = query.ToEntityArray(Allocator.TempJob);
-            if (entities.Length > 0)
-            {
-                mainEntity = entities[0];
-                TestDirectionChange(ref entityManager, ref mainEntity);
-            }
-
-            entities.Dispose();
+            // var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+            // var query = entityManager.CreateEntityQuery(typeof(MainTagComponentData), typeof(ObjectId));
+            // var entities = query.ToEntityArray(Allocator.TempJob);
+            // if (entities.Length > 0)
+            // {
+            //     mainEntity = entities[0];
+            //     TestDirectionChange(ref entityManager, ref mainEntity);
+            // }
+            //
+            // entities.Dispose();
         }
         
         public void TestDirectionChange(ref EntityManager entityManager, ref Entity entity)
