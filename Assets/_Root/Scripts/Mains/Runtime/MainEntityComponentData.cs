@@ -2,7 +2,8 @@
 
 namespace _Root.Scripts.Mains.Runtime
 {
-    public struct MainTagComponentData : IComponentData, IEnableableComponent
+    public struct MainEntityComponentData : IComponentData
     {
+        
     }
 }

@@ -1,5 +1,4 @@
-﻿using _Root.Scripts.Data.Runtime.Selecteds;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace _Root.Scripts.Selects.Runtime
