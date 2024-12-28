@@ -2,7 +2,7 @@
 
 namespace _Root.Scripts.Mains.Runtime
 {
-    public struct MainEntityTagComponentData : IComponentData, IEnableableComponent
+    public struct MainEntityStackTagComponentData : IComponentData, IEnableableComponent
     {
         public int StackOrder;
     }
