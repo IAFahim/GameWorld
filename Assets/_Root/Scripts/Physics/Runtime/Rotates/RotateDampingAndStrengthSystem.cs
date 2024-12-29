@@ -1,4 +1,5 @@
 ﻿using _Root.Scripts.Data.Runtime;
+using _Root.Scripts.Directions.Runtime;
 using Unity.Burst;
 using Unity.Entities;
 

@@ -1,16 +1,6 @@
-﻿using _Root.Scripts.ManagedReferenceProviders.Runtime;
-using Sirenix.OdinInspector;
-using Unity.Burst;
-using Unity.Entities;
-using Unity.Physics;
-using Unity.Physics.Authoring;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using Ray = UnityEngine.Ray;
-using RaycastHit = Unity.Physics.RaycastHit;
+﻿using UnityEngine;
 
-namespace _Root.Scripts.Hybrids.Selects.Runtime.Selects
+namespace _Root.Scripts.Hybrids.Selects.Runtime
 {
     public class ForSelectedManagedReferenceProviderMonoBehaviour : MonoBehaviour
     {

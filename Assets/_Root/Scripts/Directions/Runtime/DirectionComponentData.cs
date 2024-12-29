@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
 
-namespace _Root.Scripts.Data.Runtime
+namespace _Root.Scripts.Directions.Runtime
 {
     public struct DirectionComponentData : IComponentData
     {

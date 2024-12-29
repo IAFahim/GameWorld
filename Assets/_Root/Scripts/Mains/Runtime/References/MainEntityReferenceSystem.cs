@@ -24,7 +24,7 @@ namespace _Root.Scripts.Mains.Runtime.References
             var mainEntitySingleton = SystemAPI.GetSingletonRW<MainEntityReferenceSingletonComponentData>();
             mainEntitySingleton.ValueRW = new MainEntityReferenceSingletonComponentData()
             {
-                MainEntities = highestOrderEntity,
+                MainEntity = highestOrderEntity,
                 StackOrder = highestOrder
             };
         }

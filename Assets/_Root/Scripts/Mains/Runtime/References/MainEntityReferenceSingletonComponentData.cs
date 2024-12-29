@@ -4,7 +4,7 @@ namespace _Root.Scripts.Mains.Runtime.References
 {
     public struct MainEntityReferenceSingletonComponentData : IComponentData
     {
-        public Entity MainEntities;
+        public Entity MainEntity;
         public int StackOrder;
     }
 }

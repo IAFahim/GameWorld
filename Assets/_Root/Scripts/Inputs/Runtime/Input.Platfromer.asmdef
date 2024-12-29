@@ -1,0 +1,25 @@
+{
+    "name": "Input.Platfromer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:734d92eba21c94caba915361bd5ac177",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:2665a8d13d1b3f18800f46e256720795",
+        "GUID:f8242764ccad06a4ca6d427d36be92ab",
+        "GUID:14868d8e8b0ffc744b620f1ea931c4bc",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:adac8d59ad7e8504f82d387cded797a7",
+        "GUID:e0cd26848372d4e5c891c569017e11f1",
+        "GUID:5b5ea024f69f4f17b59a0038fde66ed1",
+        "GUID:f9a7372e63dd46a683f9c7dd18dc677c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

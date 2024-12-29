@@ -1,5 +1,4 @@
-﻿using _Root.Scripts.Data.Runtime;
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
