@@ -10,5 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f093cd395f44743a6f8133819b16d3b, type: 3}
-  m_Name: BoatScriptableModInputManager
+  m_Name: BoatScriptableInputProcessor
   m_EditorClassIdentifier: 
+  isModActive: 0
+  inputActionReference: {fileID: -6465110545192956491, guid: 2012d41496e881e43ab94478757ed527, type: 3}
