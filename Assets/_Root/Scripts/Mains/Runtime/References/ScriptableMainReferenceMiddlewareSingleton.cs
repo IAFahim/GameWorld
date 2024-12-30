@@ -1,8 +1,10 @@
-﻿using Pancake;
+﻿using System.Collections.Generic;
+using _Root.Scripts.Mains.Runtime.AbstractFocusProvider;
+using Pancake;
 using Sirenix.OdinInspector;
+using Unity.Entities;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Root.Scripts.Mains.Runtime.References
 {
@@ -11,50 +13,86 @@ namespace _Root.Scripts.Mains.Runtime.References
     public class
         ScriptableMainReferenceMiddlewareSingleton : ScriptableSettings<ScriptableMainReferenceMiddlewareSingleton>
     {
-        [FormerlySerializedAs("scriptableMainRefernceProcessor")] [FormerlySerializedAs("scriptableModInputMangers")] [SerializeField]
-        private AbstractScriptableMainReferenceProcessor[] scriptableMainReferenceProcessor;
+        [SerializeField] private AbstractScriptableFocusProvider[] scriptableFocusProviders;
 
         [ShowInInspector, ReadOnly] private bool _live;
+        private readonly List<int> _activeIndexes = new();
 
-        public void Process(MainEntityReferenceSingletonComponentData mainEntityReference)
+
+        public void Process(ref SystemState state, MainEntityReferenceSingletonComponentData mainEntityReference)
         {
             bool changedThisFrame = mainEntityReference.IsChangedThisFrame;
-            if (changedThisFrame)
-            {
-                _live = true;
-                DisableActive();
-            }
 
             if (mainEntityReference.IsPresent)
             {
-                int modIndex = mainEntityReference.Mod;
-                int index = 0;
-                while (modIndex > 0)
+                if (_activeIndexes.Count == 0) GetActiveIndex(ref state, mainEntityReference, changedThisFrame);
+                if (_activeIndexes.Count == 0) return;
+                foreach (var activeIndex in _activeIndexes)
                 {
-                    if((modIndex & 1) == 0) continue;
-                    if (index > scriptableMainReferenceProcessor.Length) break;
-                    if (changedThisFrame)
-                    {
-                        scriptableMainReferenceProcessor[index].Set(mainEntityReference);
-                        scriptableMainReferenceProcessor[index].isModActive = true;
-                    }
-                    scriptableMainReferenceProcessor[index].Tick(mainEntityReference);
-                    modIndex >>= 1;
-                    index++;
+                    scriptableFocusProviders[activeIndex].Tick(ref state, mainEntityReference);
                 }
+
+                if (changedThisFrame)
+                {
+                    _live = true;
+                    ClearOthers(_activeIndexes);
+                }
+            }
+            else ClearAll(changedThisFrame, _activeIndexes);
+        }
+
+        private void ClearOthers(List<int> activeIndexes)
+        {
+            for (var i = 0; i < scriptableFocusProviders.Length; i++)
+            {
+                if (activeIndexes.Contains(i)) continue;
+                var scriptableFocusProvider = scriptableFocusProviders[i];
+                Forget(scriptableFocusProvider);
             }
         }
 
-        private void DisableActive()
+        private void ClearAll(bool changedThisFrame, List<int> activeIndexes)
         {
-            foreach (var scriptableModInputManger in scriptableMainReferenceProcessor)
+            if (changedThisFrame)
             {
-                if (scriptableModInputManger.isModActive)
-                {
-                    scriptableModInputManger.Forget();
-                    scriptableModInputManger.isModActive = false;
-                }
+                _live = false;
+                ForgetActive();
+                activeIndexes.Clear();
             }
+        }
+
+        private void GetActiveIndex(ref SystemState state,
+            MainEntityReferenceSingletonComponentData mainEntityReference,
+            bool changedThisFrame)
+        {
+            _live = true;
+            int modIndex = mainEntityReference.Mod;
+            int index = 0;
+            while (modIndex > 0)
+            {
+                if ((modIndex & 1) == 0) continue;
+                if (index > scriptableFocusProviders.Length) break;
+                if (changedThisFrame)
+                {
+                    scriptableFocusProviders[index].Change(ref state, mainEntityReference);
+                    scriptableFocusProviders[index].isFocusActive = true;
+                    _activeIndexes.Add(index);
+                }
+                modIndex >>= 1;
+                index++;
+            }
+        }
+
+        private void ForgetActive()
+        {
+            foreach (var scriptableModInputManger in scriptableFocusProviders) Forget(scriptableModInputManger);
+        }
+
+        private static void Forget(AbstractScriptableFocusProvider scriptableModInputManger)
+        {
+            if (!scriptableModInputManger.isFocusActive) return;
+            scriptableModInputManger.Forget();
+            scriptableModInputManger.isFocusActive = false;
         }
 
         private void OnEnable()
@@ -70,8 +108,9 @@ namespace _Root.Scripts.Mains.Runtime.References
         {
             if (obj == PlayModeStateChange.ExitingPlayMode)
             {
-                if (_live) DisableActive();
+                if (_live) ForgetActive();
                 _live = false;
+                _activeIndexes.Clear();
             }
         }
 #endif

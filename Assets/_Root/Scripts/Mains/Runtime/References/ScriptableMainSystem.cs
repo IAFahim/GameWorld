@@ -14,7 +14,7 @@ namespace _Root.Scripts.Mains.Runtime.References
         public void OnUpdate(ref SystemState state)
         {
             var mainEntityReference = SystemAPI.GetSingleton<MainEntityReferenceSingletonComponentData>();
-            ScriptableMainReferenceMiddlewareSingleton.Instance.Process(mainEntityReference);
+            ScriptableMainReferenceMiddlewareSingleton.Instance.Process(ref state, mainEntityReference);
         }
     }
 }

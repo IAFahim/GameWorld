@@ -1,5 +1,4 @@
-﻿using _Root.Scripts.Data.Runtime;
-using _Root.Scripts.Directions.Runtime;
+﻿using _Root.Scripts.Directions.Runtime;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
@@ -42,7 +41,7 @@ namespace _Root.Scripts.Physics.Runtime.Rotates
             // Limit maximum torque to prevent overshooting
             float strength = rotateDampingAndStrength.Strength;
             finalTorque = math.clamp(finalTorque, -strength, strength);
-            physicsVelocity.Angular.z = finalTorque;
+            physicsVelocity.Angular.z += finalTorque;
         }
 
         [BurstCompile]

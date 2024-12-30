@@ -1,10 +1,10 @@
-﻿using _Root.Scripts.Data.Runtime;
-using _Root.Scripts.Directions.Runtime;
+﻿using _Root.Scripts.Directions.Runtime;
 using Unity.Burst;
 using Unity.Entities;
 
 namespace _Root.Scripts.Physics.Runtime.Rotates
 {
+    [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
     public partial struct RotateDampingAndStrengthSystem : ISystem
     {
         public EntityQuery _query;
@@ -18,7 +18,7 @@ namespace _Root.Scripts.Physics.Runtime.Rotates
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var job = new Scripts.Physics.Runtime.Rotates.RotateDampingAndStrengthJobEntity();
+            var job = new RotateDampingAndStrengthJobEntity();
             job.ScheduleParallel();
         }
     }

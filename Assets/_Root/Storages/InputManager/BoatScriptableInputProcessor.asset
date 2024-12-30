@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f093cd395f44743a6f8133819b16d3b, type: 3}
   m_Name: BoatScriptableInputProcessor
   m_EditorClassIdentifier: 
-  isModActive: 0
+  isFocusActive: 0
   inputActionReference: {fileID: -6465110545192956491, guid: 2012d41496e881e43ab94478757ed527, type: 3}
+  direction: {x: 0, y: 0, z: 0}
+  changeSpeed: 1
+  held: 0
