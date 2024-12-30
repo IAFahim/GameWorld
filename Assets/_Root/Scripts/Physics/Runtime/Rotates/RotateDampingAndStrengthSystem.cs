@@ -4,7 +4,7 @@ using Unity.Entities;
 
 namespace _Root.Scripts.Physics.Runtime.Rotates
 {
-    [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+    [UpdateInGroup(typeof(FixedStepSimulationSystemGroup), OrderFirst = true)]
     public partial struct RotateDampingAndStrengthSystem : ISystem
     {
         public EntityQuery _query;
