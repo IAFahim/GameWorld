@@ -6,7 +6,7 @@ namespace _Root.Scripts.Directions.Runtime
 {
     public class DirectionAuthoring : MonoBehaviour
     {
-        public float3 direction;
+        public float3 normalized;
 
         public class DirectionComponentDataBaker : Baker<DirectionAuthoring>
         {
@@ -15,7 +15,7 @@ namespace _Root.Scripts.Directions.Runtime
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity, new DirectionComponentData
                 {
-                    Direction = authoring.direction
+                    Normalized = authoring.normalized
                 });
             }
         }

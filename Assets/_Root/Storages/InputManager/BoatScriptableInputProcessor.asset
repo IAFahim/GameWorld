@@ -16,4 +16,5 @@ MonoBehaviour:
   inputActionReference: {fileID: -6465110545192956491, guid: 2012d41496e881e43ab94478757ed527, type: 3}
   direction: {x: 0, y: 0, z: 0}
   changeSpeed: 1
-  held: 0
+  threshold: 0.1
+  isHeld: 0

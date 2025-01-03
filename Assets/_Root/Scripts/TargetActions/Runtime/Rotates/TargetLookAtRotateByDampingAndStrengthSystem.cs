@@ -6,9 +6,9 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace _Root.Scripts.Sensors.Runtime
+namespace _Root.Scripts.TargetActions.Runtime.Rotates
 {
-    public partial struct DirectionControlAttractionAndAvoidanceSystem : ISystem
+    public partial struct TargetLookAtRotateByDampingAndStrengthSystem : ISystem
     {
         [BurstCompile]
         public void OnCreate(ref SystemState state)
@@ -36,7 +36,7 @@ namespace _Root.Scripts.Sensors.Runtime
                 >())
             {
                 int mainEntityPriority = attractionAndAvoidanceComponentData.ValueRO.MainEntityPriority;
-                directionComponentData.ValueRW.Direction = math.normalize(
+                directionComponentData.ValueRW.Normalized = math.normalize(
                     mainEntityLocalTransform.Position - localTransform.ValueRO.Position
                 );
             }

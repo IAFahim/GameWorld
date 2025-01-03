@@ -4,6 +4,7 @@ using _Root.Scripts.Mains.Runtime.References;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace _Root.Scripts.FocusProviders.Runtime
 {
@@ -14,7 +15,8 @@ namespace _Root.Scripts.FocusProviders.Runtime
         public InputActionReference inputActionReference;
         public Vector3 direction;
         public float changeSpeed;
-        public bool held;
+        public float threshold;
+        [FormerlySerializedAs("held")] public bool isHeld;
 
 
         public override void Change(ref SystemState state,
@@ -27,25 +29,27 @@ namespace _Root.Scripts.FocusProviders.Runtime
 
         private void OnActionCanceled(InputAction.CallbackContext obj)
         {
-            held = false;
+            isHeld = false;
         }
 
         private void OnActionPerformed(InputAction.CallbackContext ctx)
         {
-            held = true;
+            isHeld = true;
             var input = ctx.ReadValue<Vector2>();
             direction = new Vector3(input.x, 0, input.y);
         }
 
         public override void Tick(ref SystemState state, MainEntityReferenceSingletonComponentData mainEntityReference)
         {
-            if (!held) return;
+            if (!isHeld) return;
             var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
             var directionComponentData =
                 entityManager.GetComponentData<DirectionComponentData>(mainEntityReference.MainEntity);
-            directionComponentData.Direction = Vector3.Lerp(
-                directionComponentData.Direction, direction, changeSpeed * Time.deltaTime
-            );
+
+            directionComponentData.Normalized = direction;
+            // var dot = 1 - Mathf.Abs(Vector3.Dot(directionComponentData.Normalized, direction));
+            // Debug.Log(dot);
+            // if (threshold < dot) return;
             entityManager.SetComponentData(mainEntityReference.MainEntity, directionComponentData);
         }
 
@@ -55,7 +59,7 @@ namespace _Root.Scripts.FocusProviders.Runtime
             inputActionReference.action.canceled -= OnActionCanceled;
             inputActionReference.action.Disable();
             direction = Vector3.zero;
-            held = false;
+            isHeld = false;
         }
     }
 }

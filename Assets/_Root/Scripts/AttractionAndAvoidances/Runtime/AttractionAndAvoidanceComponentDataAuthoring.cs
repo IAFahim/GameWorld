@@ -1,15 +1,14 @@
-﻿using BovineLabs.Core.ObjectManagement;
-using Unity.Entities;
+﻿using Unity.Entities;
+using Unity.Physics.Authoring;
 using UnityEngine;
 
 namespace _Root.Scripts.AttractionAndAvoidances.Runtime
 {
     public class AttractionAndAvoidanceComponentDataAuthoring : MonoBehaviour
     {
-        public int MainEntityPriority;
-        [ObjectCategories] public int Mod1;
-        [ObjectCategories] public int Mod2;
-        [ObjectCategories] public int Mod3;
+        [SerializeField] private PhysicsCategoryTags physicsCategoryTagAdd1;
+        [SerializeField] private PhysicsCategoryTags physicsCategoryTagAdd2;
+        [SerializeField] short mainEntityPriority;
 
         public class AttractionAndAvoidanceComponentDataBaker : Baker<AttractionAndAvoidanceComponentDataAuthoring>
         {
@@ -19,10 +18,9 @@ namespace _Root.Scripts.AttractionAndAvoidances.Runtime
                 AddComponent(entity,
                     new AttractionAndAvoidanceComponentData
                     {
-                        MainEntityPriority = authoring.MainEntityPriority,
-                        Mod1 = authoring.Mod1,
-                        Mod2 = authoring.Mod2,
-                        Mod3 = authoring.Mod3
+                        PhysicsCategoryTagAdd1 = authoring.physicsCategoryTagAdd1.Value,
+                        PhysicsCategoryTagAdd2 = authoring.physicsCategoryTagAdd2.Value,
+                        MainEntityPriority = authoring.mainEntityPriority,
                     });
             }
         }

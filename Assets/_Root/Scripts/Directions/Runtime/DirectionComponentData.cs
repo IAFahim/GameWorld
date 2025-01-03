@@ -5,6 +5,6 @@ namespace _Root.Scripts.Directions.Runtime
 {
     public struct DirectionComponentData : IComponentData
     {
-        public float3 Direction;
+        public float3 Normalized;
     }
 }

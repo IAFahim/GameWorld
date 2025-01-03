@@ -18,7 +18,7 @@ namespace _Root.Scripts.Physics.Runtime.Rotates
             in RotateDampingAndStrengthComponentData rotateDampingAndStrength
         )
         {
-            float currentAngle = math.degrees(math.atan2(direction.Direction.x, direction.Direction.z));
+            float currentAngle = math.degrees(math.atan2(direction.Normalized.x, direction.Normalized.z));
             float3 forward = localTransform.Forward();
             float targetAngle = math.degrees(math.atan2(forward.x, forward.z));
 
