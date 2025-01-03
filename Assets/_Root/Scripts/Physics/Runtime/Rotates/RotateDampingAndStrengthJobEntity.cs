@@ -18,12 +18,12 @@ namespace _Root.Scripts.Physics.Runtime.Rotates
             in RotateDampingAndStrengthComponentData rotateDampingAndStrength
         )
         {
-            float currentAngle = math.degrees(math.atan2(direction.Normalized.x, direction.Normalized.z));
-            float3 forward = localTransform.Forward();
-            float targetAngle = math.degrees(math.atan2(forward.x, forward.z));
+            float currentAngle = math.atan2(direction.Normalized.x, direction.Normalized.z);
+            float3 forward = math.forward(localTransform.Rotation);
+            float targetAngle = math.atan2(forward.x, forward.z);
 
             // Calculate shortest rotation difference
-            float delta = NormalizeAngle(currentAngle - targetAngle);
+            float delta = NormalizeAngleRadians(currentAngle - targetAngle);
 
             // Early exit if nearly aligned
             float deltaAbs = math.abs(delta);
@@ -45,15 +45,12 @@ namespace _Root.Scripts.Physics.Runtime.Rotates
         }
 
         [BurstCompile]
-        private static float NormalizeAngle(float angle)
+        private static float NormalizeAngleRadians(float angle)
         {
-            // Normalize angle to -180 to 180 range
-            angle %= 360f;
-            if (angle > 180f)
-                angle -= 360f;
-            else if (angle < -180f)
-                angle += 360f;
-            return angle;
+            // Normalize angle to -π to π range (radians)
+            angle = math.fmod(angle + math.PI, 2 * math.PI);
+            if (angle < 0) angle += 2 * math.PI;
+            return angle - math.PI;
         }
     }
 }

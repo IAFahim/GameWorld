@@ -1001,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       propertyPath: errorThreshold
-      value: 0.05
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       propertyPath: integralGainDelta
