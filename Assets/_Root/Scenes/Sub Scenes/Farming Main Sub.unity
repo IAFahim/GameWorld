@@ -526,13 +526,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916665404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7133ff4fe52649fe9fcd8c305ac9d639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isMain: 0
   stackOrder: -1
+--- !u!114 &916665409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916665404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12ff66dde8a44fb383f2cce407dbb54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.01
 --- !u!1001 &976785900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 113006351320602902, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 782124406999843756, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,6 +614,22 @@ PrefabInstance:
       propertyPath: strength
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
+      propertyPath: errorThreshold
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
+      propertyPath: integralGainDelta
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
+      propertyPath: derivativeGainDelta
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456569357970551440, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
+      propertyPath: proportionalGainDelta
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7140064651132689581, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       propertyPath: m_AngularDamping
       value: 0
@@ -621,6 +650,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 113006351320602902, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 916665405}
+    - targetCorrespondingSourceObject: {fileID: 113006351320602902, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 916665409}
   m_SourcePrefab: {fileID: 100100000, guid: 65e95a191e94296489faf76b6f1fb4ea, type: 3}
 --- !u!1 &1771666999
 GameObject:

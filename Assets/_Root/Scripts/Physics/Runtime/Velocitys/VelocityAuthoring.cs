@@ -1,9 +1,8 @@
-﻿using _Root.Scripts.Data.Runtime.Physics;
-using Unity.Entities;
+﻿using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace _Root.Scripts.ECS.Physics.Runtime.Velocities
+namespace _Root.Scripts.Physics.Runtime.Velocitys
 {
     public class VelocityAuthoring : MonoBehaviour
     {

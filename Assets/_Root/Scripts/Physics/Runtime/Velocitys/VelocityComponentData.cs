@@ -1,7 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
 
-namespace _Root.Scripts.Data.Runtime.Physics
+namespace _Root.Scripts.Physics.Runtime.Velocitys
 {
     public struct VelocityComponentData : IComponentData
     {
